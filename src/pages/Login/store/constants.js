@@ -1,0 +1,4 @@
+export const CHANGE_LOGIN = 'login/CHANGE_LOGIN'
+export const LOGOUT = 'login/LOGOUT'
+export const CHANGE_LOADING_STATUS = 'login/CHANGE_LOADING_STATUS'
+export const CHANGE_ERROR_TIPS_MESSAGE = 'login/CHANGE_ERROR_TIPS_MESSAGE'
