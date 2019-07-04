@@ -3,7 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### `超级严格超级严格的eslint`
 ### `react + redux + redux-thunk(redux-saga已安装 需要的直接创建) + react-redux + styled-components(css组件化)`
 ### `集成antd,并处理成按需加载`
-### `数据全部放在redux里面，redux数据方便管理已去中心化，路由全局守卫登录鉴权`
+### `集中管理router,路由全局守卫登录鉴权`
+### `数据全部放在redux里面，redux数据方便管理已去中心化`
 ### `代码切片，mockAPI，setupProxy反向代理，__ENV__检测环境`
 ### `开箱即用`
 ### `axios的http request 拦截器，http response 拦截器，401，403，500统一处理`
