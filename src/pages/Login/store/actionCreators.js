@@ -18,8 +18,6 @@ export const changeErrorTipsMessage = (value) => ({
 
 export const login = (accout, password) => {
 	return (dispatch) => {
-    getMyExchangeList().then((res)=>{
-      console.log(res);
-    })
+    getMyExchangeList()
 	}
 }

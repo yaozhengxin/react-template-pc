@@ -1,7 +1,7 @@
 import Service from './../../../service/Service'
 
 export function getMyExchangeList (params = {}) {
-  const isShowResInConsole = false
+  const isShowResInConsole = true
   const isShowLoading = true
   const url = '/api/detail'
   return Service.get({ url, params, isShowResInConsole, isShowLoading }).then(res => {

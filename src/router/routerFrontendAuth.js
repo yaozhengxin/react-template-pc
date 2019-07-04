@@ -10,7 +10,7 @@ export class FrontendAuth extends React.Component {
     const { pathname } = location;
     const isLogin = localStorage.getItem('__config_center_token')
     console.log(`路由切换前----------${isLogin || '未登录'}`);
-
+    console.log(`${pathname}`);
     console.log('----------路由切换前');
 
     // 如果该路由不用进行权限校验，登录状态下登陆页除外

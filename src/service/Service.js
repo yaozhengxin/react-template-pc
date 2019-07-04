@@ -1,14 +1,40 @@
 import axios from 'axios'
-// import { Toast } from 'vant'
+import { notification } from 'antd';
+import { createHashHistory } from 'history';
+const history = createHashHistory();
 
 axios.defaults.timeout = 5000
 axios.defaults.baseURL = ''
+
+const openNotificationWithIcon = ({type='error',message='error',description='呀～，网络不给力'}={}) => {
+  notification[type]({
+    message,
+    description
+  });
+};
+
+
+
+// const LOGIN_HASH = '#login'
 
 // http request 拦截器
 // config  修改请求的所有配置
 axios.interceptors.request.use(
   config => {
-    // const token = getCookie('名称');注意使用的时候需要引入cookie方法，推荐js-cookie
+    if (history.location.pathname !== '/login') {
+      const token = localStorage.getItem('__config_center_token')
+      if (token == null) {
+        history.replace({
+          pathname: '/login',
+          search: `?query=${encodeURIComponent(window.location.href)}`
+        });
+        return false
+      } else {
+        config.headers['token'] = token
+      }
+    }
+    console.log(history);
+
     config.data = JSON.stringify(config.data)
     config.headers = {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -21,6 +47,7 @@ axios.interceptors.request.use(
     return config
   },
   error => {
+    openNotificationWithIcon()
     return Promise.reject(error)
   }
 )
@@ -38,6 +65,24 @@ axios.interceptors.response.use(
     return response
   },
   error => {
+    if (error.response !== undefined) {
+      switch (error.response.status) {
+        case 401:
+          history.replace({
+            pathname: '/login',
+            search: `?query=${encodeURIComponent(window.location.href)}`
+          });
+          break
+        case 403:
+          history.replace({
+            pathname: '/401'
+          });
+          break
+        default:
+          openNotificationWithIcon({message:error.response.status,description:error.response.data})
+      }
+      return Promise.resolve(error.response)
+    }
     return Promise.reject(error)
   }
 )

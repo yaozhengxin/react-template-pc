@@ -4,6 +4,8 @@ import { LoginWrapper, NormalLoginFormBox } from './../style'
 import { Helmet } from 'react-helmet'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import { actionCreators } from './../store'
+import { createHashHistory } from 'history';
+const history = createHashHistory();
 
 function hasErrors (fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field])
@@ -17,7 +19,8 @@ class Login extends PureComponent {
     if (process.env.NODE_ENV === 'development') {
       setFieldsValue({userName, passWord});
     }
-    // this.props.login()
+    // 测试接口
+    this.props.login()
   }
 
   handleSubmit = e => {
@@ -29,6 +32,14 @@ class Login extends PureComponent {
         // const { userName, password } = values
         setTimeout(() => {
           this.props.changeLoadingStatus(false)
+          if(history.location.search){
+            window.location.href = new URLSearchParams(history.location.search).get('query')
+          }else{
+            history.replace({
+              pathname: '/'
+            });
+          }
+
           //   // 当需要指定登陆用户时，前端可以写死
           // let userA = userName === 'admin' && password === '111'
           // let userB = userName === 'admin2' && password === '222'

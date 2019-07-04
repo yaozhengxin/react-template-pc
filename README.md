@@ -6,7 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### `数据全部放在redux里面，redux数据方便管理已去中心化，路由全局守卫登录鉴权`
 ### `代码切片，mockAPI，setupProxy反向代理，__ENV__检测环境`
 ### `开箱即用`
-### `下次补充axios的http request 拦截器，http response 拦截器，401，404，500统一处理`
+### `axios的http request 拦截器，http response 拦截器，401，403，500统一处理`
+### `目前三个页面 /login /404 /401`
+### `yarn analyze 新增build包分析`
 
 
 ## Available Scripts

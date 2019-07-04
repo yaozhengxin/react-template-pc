@@ -6,14 +6,9 @@ import LoginWrapper from './components/LoginWrapper'
 
 class Login extends PureComponent {
   render () {
-    // const { loginStatus } = this.props;
-    // if(!loginStatus){
       return (
         <LoginWrapper />
       )
-    // } else {
-    //   return <Redirect to="/"/>
-    // }
   }
 }
 
