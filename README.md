@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ### `Creat-react-app 脚手架搭建项目 BY YZX`
-### `超级严格超级严格的eslint`
+### `超级严格超级严格的eslint，请好好写代码要不然，呵呵`
 ### `react + redux + redux-thunk(redux-saga已安装 需要的直接创建) + react-redux + styled-components(css组件化)`
 ### `集成antd,并处理成按需加载`
 ### `集中管理router,路由全局守卫登录鉴权`
